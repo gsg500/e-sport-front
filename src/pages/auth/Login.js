@@ -47,7 +47,7 @@ function Login(props) {
       <h1>Login</h1>
 
       <div>
-        <label htmlFor="signupFormEmail">E-mail Address</label>
+        <label htmlFor="signupFormEmail">E-mail </label>
         <input
           type="email"
           name="email"
