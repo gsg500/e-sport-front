@@ -5,6 +5,7 @@ import Signup from "../pages/auth/Signup";
 import Login from "../pages/auth/Login";
 import ProtectedRoute from "../pages/auth/ProtectedRoute";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 // Produtos
 import ProductCreate from "../pages/product/ProductCreate";
@@ -42,6 +43,7 @@ function App() {
             />
           </Routes>
         </div>
+        <Footer />
       </div>
     </AuthContextComponent>
   );
