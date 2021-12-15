@@ -1,66 +1,71 @@
-.loginIntro{
-    text-align: center;
-    margin-bottom: 3rem;
+.loginIntro {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.loginTitle{
-    font-weight: bold;
-    font-size: 3rem;
+.loginTitle {
+  font-weight: bold;
+  font-size: 3rem;
+  color: #42493a;
 }
 
-.loginConteiner{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #FFF;
-    border-radius: 2%;
-    border-collapse: collapse;
-    box-shadow:  0 0 1em #84976D;
-    padding: 1rem;
+.loginText {
+  color: #42493a;
 }
 
-.loginItensConteiner{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 5px;
+.loginConteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2%;
+  border-collapse: collapse;
+  box-shadow: 0 0 1em #84976d;
+  padding: 1rem;
 }
 
-.loginItens{
-    margin-right: 5px;
+.loginItensConteiner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
 }
 
-.loginButtonsContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.loginItens {
+  margin-right: 5px;
 }
 
-.loginInput{
-    border-radius: 6px;
-    font-size: 20px;
-    line-height: 40px;
-    border-color: #84976d74;
+.loginButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.loginButtons{
-    width: 80%;
-    border: none;
-    border-radius: 6px;
-    font-size: 20px;
-    line-height: 40px;
-    background-color: #0084C6;
-    color: #fff;
-    margin: 0.5rem;
+.loginInput {
+  border-radius: 6px;
+  font-size: 20px;
+  line-height: 40px;
+  border-color: #84976d74;
 }
 
-.signupButtons{
-    width: 80%;
-    border: none;
-    border-radius: 6px;
-    font-size: 20px;
-    line-height: 40px;
-    background-color: #69B11F;
-    color: #fff;
-    margin: 1rem;
+.loginButtons {
+  width: 80%;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  line-height: 40px;
+  background-color: #0084c6;
+  color: #fff;
+  margin: 0.5rem;
+}
+
+.signupButtons {
+  width: 80%;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  line-height: 40px;
+  background-color: #69b11f;
+  color: #fff;
+  margin: 1rem;
 }
