@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apis = {
-  development: "http://localhost:4000/api/v1",
+  development: "https://e-sport-iron.herokuapp.com",
   production: "https://e-sport-iron.herokuapp.com",
 };
 

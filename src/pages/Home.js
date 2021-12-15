@@ -1,18 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Carousel from "../components/Carousel";
+import "../assets/styles/home.css";
+import EstablishmentItem from "../components/EstablishmentItem";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div className="text-center">
- 
-      <h1>React IronPlate</h1>
-      <p>This is the homepage</p>
-      <div className="d-flex flex-column align-items-center">
-        <Link className="btn btn-lg btn-primary" to="/auth/signup">
-          Signup here!
-        </Link>
-      </div>
-    </div>
+    <>
+      <section className="filterSection">
+        <h1 className="homeTitle">E-Sport</h1>
+        <Carousel />
+      </section>
+      <section className="estblishmentsSection">
+        <EstablishmentItem />
+        <EstablishmentItem />
+        <EstablishmentItem />
+        <EstablishmentItem />
+        <EstablishmentItem />
+      </section>
+      <Footer />
+    </>
   );
 }
 
