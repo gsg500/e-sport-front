@@ -1,0 +1,14 @@
+.filterSection {
+  background-color: #42493a;
+  margin: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.homeTitle {
+ color: #A6AE9C;
+ font-weight: bold;
+ font-size: 3rem;
+ padding: 1rem;
+}

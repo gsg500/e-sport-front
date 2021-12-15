@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import Signup from "../pages/auth/Signup";
 import Login from "../pages/auth/Login";
 import ProtectedRoute from "../pages/auth/ProtectedRoute";
-import Footer from "./Footer";
+
 
 // Produtos
 import ProductCreate from "../pages/product/ProductCreate";
@@ -18,7 +18,7 @@ function App() {
   return (
     <AuthContextComponent>
       <div>
-        <div className="container mt-5">
+        <div>
           <Routes>
             <Route path="/" element={<ProtectedRoute component={Home} />} />
             <Route path="/signup" element={<Signup />} />
@@ -41,7 +41,6 @@ function App() {
             />
           </Routes>
         </div>
-        <Footer />
       </div>
     </AuthContextComponent>
   );

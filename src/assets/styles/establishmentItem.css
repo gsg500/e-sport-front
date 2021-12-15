@@ -1,0 +1,43 @@
+.establishmentItemConteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    border-bottom: 1px solid #42493A;
+
+}
+
+.establishmentItemImageConteiner{
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 1em black;
+}
+
+.establishmentItemImage{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.estblishmentsSection{
+    margin-bottom: 5rem;
+}
+
+.establishmentItemTextConteiner{
+    padding: 0.5rem;
+}
+
+.establishmentItemTitle{
+    margin: 0;
+    color: #42493A;
+}
+
+.establishmentItemText{
+    margin: 0;
+    font-size: 0.6rem;
+    color: #A6AE9C;
+}
