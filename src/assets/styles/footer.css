@@ -1,0 +1,22 @@
+.footerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #42493A;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
+.footerIcon {
+    display: inline;
+    text-align: center;
+}
+
+.footerText {
+    margin: 0;
+    color: #A6AE9C;
+    text-decoration: none !important;
+}

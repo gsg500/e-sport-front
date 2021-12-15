@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import Signup from "../pages/auth/Signup";
 import Login from "../pages/auth/Login";
 import ProtectedRoute from "../pages/auth/ProtectedRoute";
-import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 // Produtos
 import ProductCreate from "../pages/product/ProductCreate";
@@ -18,7 +18,6 @@ function App() {
   return (
     <AuthContextComponent>
       <div>
-        <Navbar />
         <div className="container mt-5">
           <Routes>
             <Route path="/" element={<ProtectedRoute component={Home} />} />
@@ -42,6 +41,7 @@ function App() {
             />
           </Routes>
         </div>
+        <Footer />
       </div>
     </AuthContextComponent>
   );
