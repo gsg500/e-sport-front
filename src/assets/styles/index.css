@@ -4,3 +4,8 @@
   width: auto;
   height: 100px;
 }
+
+body {
+    background-color: #F7FBF1;
+    font-family: 'Fuzzy Bubbles', cursive;
+}
