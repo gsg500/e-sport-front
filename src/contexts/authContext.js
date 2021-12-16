@@ -4,19 +4,17 @@ const AuthContext = createContext({ token: "", user: {} });
 
 function AuthContextComponent(props) {
   const [loggedInUser, setLoggedInUser] = useState({ token: "", user: {} });
-
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
 
     const parsedStoredUser = JSON.parse(storedUser || '""');
 
-    
+    console.log(parsedStoredUser.establishment)
 
     if (parsedStoredUser.user) {
       setLoggedInUser({ ...parsedStoredUser });
-    } else if (parsedStoredUser.establishment) {
-      setLoggedInUser({ ...parsedStoredUser });
     }
+
   }, []);
 
   function logout() {

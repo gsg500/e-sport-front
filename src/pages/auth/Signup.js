@@ -3,7 +3,7 @@ import UserSignup from "../../components/UserSignup";
 import EstablishmentSignup from "../../components/EstablishmentSignup";
 
 function Signup(props) {
-  const [state, setState] = useState({ userType: "" });
+  const [state, setState] = useState({ userType: "user" });
 
   function handleChange(event) {
     setState({
@@ -13,7 +13,7 @@ function Signup(props) {
   }
 
   return (
-    <>
+    <div className="m-3 text-center">
       <h1>Crie sua conta!</h1>
       <div className="loginItensConteiner">
         <div className="loginItens">
@@ -42,7 +42,7 @@ function Signup(props) {
       </div>
 
       {state.userType === "user" ? <UserSignup /> : <EstablishmentSignup />}
-    </>
+    </div>
   );
 }
 
