@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <div className="footerIcon">
           <Link to="/avaliacao" className="footerLink">
-            <i className="fa-line-chart"></i>
+            <i className="far fa-line-chart fa-2x footerText"></i>
             <p className="footerText">Avaliação</p>
           </Link>          
         </div>
