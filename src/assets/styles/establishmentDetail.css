@@ -1,0 +1,41 @@
+.establishmentDetailConteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+
+}
+
+.establishmentDetailImageConteiner{
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 1em black;
+}
+
+.establishmentDetailImage{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+
+.establishmentDetailTextConteiner{
+    padding: 0.5rem;
+}
+
+.establishmentDetailTitle{
+    margin: 0;
+    font-size: 2rem;
+    color: #42493A;
+}
+
+.establishmentDetailText{
+    margin: 0;
+    font-size: 1rem;
+    color: #42493A;
+}
+
