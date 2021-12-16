@@ -24,6 +24,13 @@ export default function Footer() {
           </Link>
         </div>
         <div className="footerIcon">
+          <Link to="/avaliacao" className="footerLink">
+            <i className="fa-line-chart"></i>
+            <p className="footerText">Avaliação</p>
+          </Link>          
+        </div>
+
+        <div className="footerIcon">
           <Link to="/profile" className="footerLink">
             <i className="fas fa-user-circle fa-2x footerText"></i>
             <p className="footerText">Perfil</p>
