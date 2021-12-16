@@ -3,8 +3,24 @@ import Carousel from "../components/Carousel";
 import "../assets/styles/home.css";
 import EstablishmentItem from "../components/EstablishmentItem";
 import Footer from "../components/Footer";
-
+import api from "../apis/api";
+import { useState, useEffect } from "react";
 function Home() {
+  const [establishmentList, setEstablishmentList] = useState([]);
+
+  useEffect(() => {
+    async function fetchEstablishments() {
+      try {
+        const response = await api.get("/establishment/list");
+
+        setEstablishmentList([...response.data]);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    fetchEstablishments();
+  }, []);
+
   return (
     <>
       <section className="filterSection">
@@ -12,11 +28,12 @@ function Home() {
         <Carousel />
       </section>
       <section className="estblishmentsSection">
-        <EstablishmentItem />
-        <EstablishmentItem />
-        <EstablishmentItem />
-        <EstablishmentItem />
-        <EstablishmentItem />
+        {establishmentList.map((currenEstablishment) => (
+          <EstablishmentItem
+            key={currenEstablishment._id}
+            {...currenEstablishment}
+          />
+        ))}
       </section>
       <Footer />
     </>
