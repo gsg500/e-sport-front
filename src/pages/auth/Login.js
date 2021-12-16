@@ -22,7 +22,7 @@ function Login(props) {
       ...state,
       [event.currentTarget.name]: event.currentTarget.value,
     });
-    console.log(state);
+
   }
 
   async function handleSubmit(event) {
@@ -36,7 +36,7 @@ function Login(props) {
     } else if (state.userType === "establishment") {
       loginApi = "/establishment/login";
     }
-    console.log(state);
+  
     try {
       const response = await api.post(loginApi, state);
       console.log(response);
