@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function EstablishmentItem(props) {
   return (
     <div className="establishmentItemConteiner">
-    <Link to="/establishment/:id" className="establishmentItemLink">
+    <Link to={`/establishment/${props._id}`} className="establishmentItemLink">
       <div className="establishmentItemImageConteiner">
         <img src={props.imageUrl} alt={props.name} className="establishmentItemImage"/>
       </div>

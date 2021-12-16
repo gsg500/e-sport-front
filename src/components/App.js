@@ -1,9 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "../pages/Home";
+import Search from "../pages/Search";
 import Signup from "../pages/auth/Signup";
 import Login from "../pages/auth/Login";
 import ProtectedRoute from "../pages/auth/ProtectedRoute";
+import Home from "../pages/Home";
+import EstablishmentDetails from "./EstablishmentDetails";
 
 
 // Produtos
@@ -20,9 +22,14 @@ function App() {
       <div>
         <div>
           <Routes>
-            <Route path="/" element={<ProtectedRoute component={Home} />} />
+          <Route path="/" element={<ProtectedRoute component={Home} />} />
+            <Route path="/search" element={<ProtectedRoute component={Search} />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route
+              path="/establishment/:id"
+              element={<ProtectedRoute component={EstablishmentDetails} />}
+            />
             <Route
               path="/product/create"
               element={<ProtectedRoute component={ProductCreate} />}
