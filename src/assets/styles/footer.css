@@ -18,5 +18,8 @@
 .footerText {
     margin: 0;
     color: #A6AE9C;
-    text-decoration: none !important;
+}
+
+.footerLink{
+    text-decoration: none ;
 }

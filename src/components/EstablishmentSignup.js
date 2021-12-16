@@ -19,6 +19,7 @@ export default function EstablishmentSignup() {
       cep: 0,
     },
     phone: 0,
+    fieldTypes: "",
   });
   const [adressData, setAdressData] = useState({
     street: "",
@@ -34,14 +35,15 @@ export default function EstablishmentSignup() {
     email: null,
     password: null,
     adress: {
-        street: null,
-        number: null,
-        Bairro: null,
-        city: null,
-        state: null,
-        cep: null,
-      },
-      phone: null,
+      street: null,
+      number: null,
+      Bairro: null,
+      city: null,
+      state: null,
+      cep: null,
+    },
+    phone: null,
+    fieldTypes: null,
   });
 
   const navigate = useNavigate();
@@ -159,6 +161,16 @@ export default function EstablishmentSignup() {
         name="picture"
         onChange={handleChange}
         readOnly={loading}
+      />
+
+      <FormField
+        type="text"
+        label="Tipo de quadra: "
+        name="fieldTypes"
+        id="signupFormFieldTypes"
+        value={state.fieldTypes}
+        error={errors.fieldTypes}
+        onChange={handleChange}
       />
 
       <h3>Endereço</h3>

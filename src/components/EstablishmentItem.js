@@ -1,18 +1,22 @@
-import quadras from "../assets/img/serie-ouro-28082018.jpg"
-import "../assets/styles/establishmentItem.css"
+import "../assets/styles/establishmentItem.css";
+import { Link } from "react-router-dom";
 
-export default function EstablishmentItem(){
-
-    return(
-        <div className="establishmentItemConteiner">
-        <div className="establishmentItemImageConteiner">
-          <img src={quadras} alt="Super quadras" className="establishmentItemImage" />
-        </div>
-        <div className="establishmentItemTextConteiner">
-        <h5 className="establishmentItemTitle">Super quadras</h5>
-        <p className="establishmentItemText">Rua Rio de Janeiro nº 5769, Bairro São Francisco, Patos-PB</p>
-        <p className="establishmentItemText">Futsal, Handebol, Basquete</p>
-        </div>
+export default function EstablishmentItem(props) {
+  return (
+    <div className="establishmentItemConteiner">
+    <Link to="/establishment/:id" className="establishmentItemLink">
+      <div className="establishmentItemImageConteiner">
+        <img src={props.imageUrl} alt={props.name} className="establishmentItemImage"/>
       </div>
-    )
+      <div className="establishmentItemTextConteiner">
+        <h5 className="establishmentItemTitle">{props.name}</h5>
+        <p className="establishmentItemText">
+          Rua {props.adress.street} nº {props.adress.number}, Bairro{" "}
+          {props.adress.Bairro}, {props.adress.city}-{props.adress.state}
+        </p>
+        <p className="establishmentItemText">{props.fieldTypes}</p>
+      </div>
+      </Link>
+    </div>
+  );
 }
