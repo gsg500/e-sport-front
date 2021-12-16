@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import Signup from "../pages/auth/Signup";
 import Login from "../pages/auth/Login";
 import ProtectedRoute from "../pages/auth/ProtectedRoute";
-
+import Assessment from "../pages/AssessmentPage";
 
 // Produtos
 import ProductCreate from "../pages/product/ProductCreate";
@@ -39,6 +39,11 @@ function App() {
               path="/product/delete/:id"
               element={<ProtectedRoute component={ProductDelete} />}
             />
+            <Route
+              path="/avaliacao"
+              element={<ProtectedRoute component={Assessment} />}
+            />
+
           </Routes>
         </div>
       </div>
