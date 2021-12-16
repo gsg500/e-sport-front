@@ -15,6 +15,7 @@ function FormField(props) {
         pattern={props.pattern}
         min={props.min}
         readOnly={props.readOnly}
+        error={props.error}
       />
     </div>
   );

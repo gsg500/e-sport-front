@@ -1,87 +1,129 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../apis/api";
+import FormField from "./forms/FormField";
 
-export default function UserSignup(){
+export default function UserSignup() {
+  const [state, setState] = useState({
+    name: "",
+    password: "",
+    email: "",
+    picture: new File([], ""),
+    pictureUrl: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({
+    name: null,
+    email: null,
+    password: null,
+  });
 
-    const [state, setState] = useState({ name: "", password: "", email: "" });
-    const [errors, setErrors] = useState({
-      name: null,
-      email: null,
-      password: null,
-    });
-  
-    const navigate = useNavigate();
-  
-    function handleChange(event) {
-      setState({
+  const navigate = useNavigate();
+
+  async function handleFileUpload(file) {
+    try {
+      const uploadData = new FormData();
+
+      uploadData.append("picture", file);
+
+      const response = await api.post("/user/upload", uploadData);
+
+      console.log(response);
+
+      return response.data.url;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function handleChange(event) {
+    if (event.target.files) {
+      return setState({
         ...state,
-        [event.currentTarget.name]: event.currentTarget.value,
+        [event.target.name]: event.target.files[0],
       });
     }
-  
-    async function handleSubmit(event) {
-      event.preventDefault();
-  
-      try {
-        await api.post("/user/signup", state);
-        setErrors({ name: "", password: "", email: "" });
-        navigate("/login");
-      } catch (err) {
-        if (err.response) {
-          console.error(err.response);
-          return setErrors({ ...err.response.data.errors });
-        }
-  
-        console.error(err);
+
+    setState({
+      ...state,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    try {
+      setLoading(true);
+      const pictureUrl = await handleFileUpload(state.picture);
+
+      await api.post("/user/signup", { ...state, pictureUrl });
+
+      setErrors({ name: "", password: "", email: "" });
+
+      setLoading(false);
+      navigate("/login");
+    } catch (err) {
+      if (err.response) {
+        setLoading(false);
+        console.error(err.response);
+        return setErrors({ ...err.response.data.errors });
       }
+
+      console.error(err);
     }
+  }
 
-    return (
-        <form onSubmit={handleSubmit}>
+  return (
+    <form onSubmit={handleSubmit}>
+      <FormField
+        type="text"
+        label="Nome: "
+        name="name"
+        id="signupFormName"
+        value={state.name}
+        error={errors.name}
+        onChange={handleChange}
+      />
 
-  
-        <div>
-          <label htmlFor="signupFormName">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="signupFormName"
-            value={state.name}
-            error={errors.name}
-            onChange={handleChange}
-          />
-        </div>
-  
-        <div>
-          <label htmlFor="signupFormEmail">E-mail Address</label>
-          <input
-            type="email"
-            name="email"
-            id="signupFormEmail"
-            value={state.email}
-            error={errors.email}
-            onChange={handleChange}
-          />
-        </div>
-  
-        <div>
-          <label htmlFor="signupFormPassword">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="signupFormPassword"
-            value={state.password}
-            error={errors.password}
-            onChange={handleChange}
-          />
-        </div>
-  
-        <div>
-          <button type="submit">Signup!</button>
-  
-          <Link to="/login">Already have an account? Click here to login.</Link>
-        </div>
-      </form>
-    )
+      <FormField
+        type="email"
+        label="Email: "
+        name="email"
+        id="signupFormEmail"
+        value={state.email}
+        error={errors.email}
+        onChange={handleChange}
+      />
+
+      <FormField
+        type="password"
+        label="Senha: "
+        name="password"
+        id="signupFormPassword"
+        value={state.password}
+        error={errors.password}
+        onChange={handleChange}
+      />
+
+      <FormField
+        type="file"
+        label="Imagem: "
+        id="productFormPicture"
+        name="picture"
+        onChange={handleChange}
+        readOnly={loading}
+      />
+
+      <div className="d-flex flex-column">
+        <button type="submit" className="btn btn-primary m-2">
+          Criar conta
+        </button>
+
+        <Link to="/login">
+          Já tem uma conta? Clique aqui para realizar login.
+        </Link>
+      </div>
+    </form>
+  );
 }
