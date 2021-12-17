@@ -17,15 +17,9 @@ export default function Footer() {
             <p className="footerText">Busca</p>
           </Link>
         </div>
-        <div className="footerIcon">
-          <Link to="/calendar" className="footerLink">
-            <i className="far fa-calendar fa-2x footerText"></i>
-            <p className="footerText">Agenda</p>
-          </Link>
-        </div>
-        <div className="footerIcon">
+          <div className="footerIcon">
           <Link to="/avaliacao" className="footerLink">
-            <i className="far fa-check fa-2x footerText"></i>
+            <i className="far fa-calendar fa-2x footerText"></i>
             <p className="footerText">Avaliação</p>
           </Link>          
         </div>
