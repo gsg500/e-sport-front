@@ -16,12 +16,12 @@ function AssessmentPage() {
     setIsLoading(true);
     async function fetchAssessment() {
       try {
-        const response = await api.get("assessmentuser/list");
+        const response = await api.get("/assessmentuser/list");
 
         setAssessment([...response.data]);
         setIsLoading(false);
       } catch (err) {
-        console.error(err);
+        console.log(err);
         setIsLoading(false);
       }
     }
