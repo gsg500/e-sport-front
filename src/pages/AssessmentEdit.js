@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
-import {useParams} from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import api from "../apis/api";
 
 function AssessmentEdit(props) {
-  const [state, setState] = useState({ data: "", velocity: "", kick: "", pass: "", marking: "", dribble: "",user: ""});
+  const [state, setState] = useState({
+    data: "",
+    velocity: "",
+    kick: "",
+    pass: "",
+    marking: "",
+    dribble: "",
+    user: "",
+  });
   const { id } = useParams(props);
 
   useEffect(() => {
     async function fetchData() {
-      try { //await api.
+      try {
+        //await api.
         const response = await api.get(`/assessmentuser/${id}`);
-         delete response.data._id
+        delete response.data._id;
         setState({ ...response.data });
-        
       } catch (err) {
         console.error(err);
       }
@@ -30,14 +38,8 @@ function AssessmentEdit(props) {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await api.patch(`/assessmentuser/${id}`,
-      state
-    );
-
-    console.log(response);
-  
+    await api.patch(`/assessmentuser/${id}`, state);
   }
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -76,7 +78,7 @@ function AssessmentEdit(props) {
           onChange={handleChange}
           value={state.velocity}
         />
-      </div>   
+      </div>
       {/* Weapon */}
       <div className="form-group">
         <label htmlFor="newCharacterWeapon">Kick</label>

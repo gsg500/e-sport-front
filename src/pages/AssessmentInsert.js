@@ -13,8 +13,8 @@ function AssessmentInsert(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();    
-    const response = await api.post("/assessmentuser/new", state);
-     console.log(response) 
+    await api.post("/assessmentuser/new", state);
+  
   }
 
   return (

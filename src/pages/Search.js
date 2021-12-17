@@ -9,6 +9,7 @@ function Search() {
   const [establishmentList, setEstablishmentList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+
   useEffect(() => {
     setIsLoading(true);
     async function fetchEstablishments() {
