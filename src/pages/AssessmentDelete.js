@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {useParams} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import api from "../apis/api";
 
 function AssessmentDelete(props) {
@@ -8,9 +8,7 @@ function AssessmentDelete(props) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await api.delete(`/assessmentuser/${id}`
-        );
-        console.log(response);
+        await api.delete(`/assessmentuser/${id}`);
       } catch (err) {
         console.error(err);
       }

@@ -53,7 +53,7 @@ function ProductCreate() {
 
       const response = await api.post("/upload", uploadData);
 
-      console.log(response);
+ 
 
       return response.data.url;
     } catch (err) {
@@ -69,13 +69,13 @@ function ProductCreate() {
 
       const pictureUrl = await handleFileUpload(productData.picture);
 
-      const response = await api.post("/product", {
+      await api.post("/product", {
         ...productData,
         pictureUrl,
         tags: productData.tags.map((currentTagObj) => currentTagObj.value),
       });
 
-      console.log(response);
+   
       setLoading(false);
     } catch (err) {
       console.error(err);

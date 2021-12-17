@@ -9,7 +9,7 @@ function AuthContextComponent(props) {
 
     const parsedStoredUser = JSON.parse(storedUser || '""');
 
-    console.log(parsedStoredUser.establishment)
+    
 
     if (parsedStoredUser.user) {
       setLoggedInUser({ ...parsedStoredUser });

@@ -1,20 +1,20 @@
 import Footer from "./Footer";
 import api from "../apis/api";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+
 import "../assets/styles/establishmentDetail.css";
-export default function EstablishmentDetails() {
-  const [establishmentData, setEstablishmentData] = useState({});
-  const [establishmentAdress, setEstablishmentAdress] = useState({})
+export default function UserProfile(props) {
+  const [userData, setUserData] = useState({});
+ 
   const [isLoading, setIsLoading] = useState(false);
-  const { id } = useParams();
+
   useEffect(() => {
     setIsLoading(true);
-    async function fetchEstablishments() {
+    async function fetchUser() {
       try {
-        const response = await api.get(`/establishment/${id}`);
-        setEstablishmentData({ ...response.data });
-        setEstablishmentAdress({ ...response.data.adress });
+        const response = await api.get(`/user/${props.id}`);
+        setUserData({ ...response.data });
+
         setIsLoading(false);
       } catch (err) {
         console.error(err);
@@ -22,9 +22,9 @@ export default function EstablishmentDetails() {
       }
     }
 
-    fetchEstablishments();
+    fetchUser();
 
-  }, [id]);
+  }, [props.id]);
 
   return (
     <div className="">
@@ -39,23 +39,18 @@ export default function EstablishmentDetails() {
           <div className="establishmentDetailConteiner">
             <div className="establishmentDetailImageConteiner">
               <img
-                src={establishmentData.pictureUrl}
-                alt={establishmentData.name}
+                src={userData.imageUrl}
+                alt={userData.name}
                 className="establishmentDetailImage"
               />
             </div>
             <div className="establishmentDetailTextConteiner">
               <h5 className="establishmentDetailTitle">
-                {establishmentData.name}
+                {userData.name}
               </h5>
-              <p className="establishmentDetailText">
-              Rua {establishmentAdress.street} nº {establishmentAdress.number}, Bairro{" "}
-          {establishmentAdress.Bairro}, {establishmentAdress.city}-{establishmentAdress.state}
-              </p>
-              <p className="establishmentDetailText">{establishmentData.phone}</p>
-              <p className="establishmentDetailText">
-                {establishmentData.fieldTypes}
-              </p>
+              
+              <p className="establishmentDetailText">{userData.email}</p>
+
             </div>
           </div>
         </>

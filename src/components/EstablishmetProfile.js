@@ -1,18 +1,16 @@
 import Footer from "./Footer";
 import api from "../apis/api";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import "../assets/styles/establishmentDetail.css";
-export default function EstablishmentDetails() {
+export default function EstablishmentDetails(props) {
   const [establishmentData, setEstablishmentData] = useState({});
   const [establishmentAdress, setEstablishmentAdress] = useState({})
   const [isLoading, setIsLoading] = useState(false);
-  const { id } = useParams();
   useEffect(() => {
     setIsLoading(true);
     async function fetchEstablishments() {
       try {
-        const response = await api.get(`/establishment/${id}`);
+        const response = await api.get(`/establishment/${props.id}`);
         setEstablishmentData({ ...response.data });
         setEstablishmentAdress({ ...response.data.adress });
         setIsLoading(false);
@@ -24,7 +22,7 @@ export default function EstablishmentDetails() {
 
     fetchEstablishments();
 
-  }, [id]);
+  }, [props.id]);
 
   return (
     <div className="">
@@ -53,6 +51,7 @@ export default function EstablishmentDetails() {
           {establishmentAdress.Bairro}, {establishmentAdress.city}-{establishmentAdress.state}
               </p>
               <p className="establishmentDetailText">{establishmentData.phone}</p>
+              <p className="establishmentDetailText">{establishmentData.email}</p>
               <p className="establishmentDetailText">
                 {establishmentData.fieldTypes}
               </p>

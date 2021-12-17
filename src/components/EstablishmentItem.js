@@ -6,7 +6,7 @@ export default function EstablishmentItem(props) {
     <div className="establishmentItemConteiner">
     <Link to={`/establishment/${props._id}`} className="establishmentItemLink">
       <div className="establishmentItemImageConteiner">
-        <img src={props.imageUrl} alt={props.name} className="establishmentItemImage"/>
+        <img src={props.pictureUrl} alt={props.name} className="establishmentItemImage"/>
       </div>
       <div className="establishmentItemTextConteiner">
         <h5 className="establishmentItemTitle">{props.name}</h5>

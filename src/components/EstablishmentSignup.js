@@ -56,7 +56,7 @@ export default function EstablishmentSignup() {
 
       const response = await api.post("/establishment/upload", uploadData);
 
-      console.log(response);
+
 
       return response.data.url;
     } catch (err) {
@@ -71,7 +71,7 @@ export default function EstablishmentSignup() {
     });
 
     setState({ ...state, adress: adressData });
-    console.log(state);
+
   }
 
   function handleChange(event) {

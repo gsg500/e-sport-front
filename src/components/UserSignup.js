@@ -28,7 +28,7 @@ export default function UserSignup() {
 
       const response = await api.post("/user/upload", uploadData);
 
-      console.log(response);
+      
 
       return response.data.url;
     } catch (err) {
