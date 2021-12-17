@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import api from "../../apis/api";
+import api from "../apis/api";
 
 function EstablishmentDelete() {
   const { id } = useParams();
