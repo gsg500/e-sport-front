@@ -33,10 +33,12 @@ function AssessmentPage() {
           <AssessmentUser
             key={currenAssessment.user}
             {...currenAssessment}
-          />
+          /> 
         ))}
+        y
       </section>
       <Footer />
+      
     </>
   );
 }
