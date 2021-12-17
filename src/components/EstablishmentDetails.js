@@ -13,7 +13,6 @@ export default function EstablishmentDetails() {
     async function fetchEstablishments() {
       try {
         const response = await api.get(`/establishment/${id}`);
-
         setEstablishmentData({ ...response.data });
         setEstablishmentAdress({ ...response.data.adress });
         setIsLoading(false);
