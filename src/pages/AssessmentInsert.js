@@ -24,7 +24,7 @@ function AssessmentInsert(props) {
       <div className="form-group">
         <label htmlFor="newCharacterName">Jogador</label>
         <input
-          name="comprador"
+          name="user"
           type="text"
           className="form-control"
           id="newCharacterName"
@@ -39,7 +39,7 @@ function AssessmentInsert(props) {
           type={Date}
           className="form-control"
           id="newCharacterOccupation"
-          name="quantidade"
+          name="data"
           onChange={handleChange}
           value={state.data}
         />
@@ -51,7 +51,7 @@ function AssessmentInsert(props) {
           type="text"
           className="form-control"
           id="newCharacterWeapon"
-          name="status"
+          name="velocity"
           onChange={handleChange}
           value={state.velocity}
         />
@@ -63,7 +63,7 @@ function AssessmentInsert(props) {
           type="text"
           className="form-control"
           id="newCharacterWeapon"
-          name="status"
+          name="kick"
           onChange={handleChange}
           value={state.kick}
         />
@@ -75,7 +75,7 @@ function AssessmentInsert(props) {
           type="text"
           className="form-control"
           id="newCharacterWeapon"
-          name="status"
+          name="pass"
           onChange={handleChange}
           value={state.pass}
         />
@@ -87,7 +87,7 @@ function AssessmentInsert(props) {
           type="text"
           className="form-control"
           id="newCharacterWeapon"
-          name="status"
+          name="marking"
           onChange={handleChange}
           value={state.marking}
         />
@@ -99,7 +99,7 @@ function AssessmentInsert(props) {
           type="text"
           className="form-control"
           id="newCharacterWeapon"
-          name="status"
+          name="dribble"
           onChange={handleChange}
           value={state.dribble}
         />
