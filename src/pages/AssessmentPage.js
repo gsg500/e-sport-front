@@ -5,19 +5,24 @@ import AssessmentUser from "../components/AssessmentUser";
 import Footer from "../components/Footer";
 import api from "../apis/api";
 import { useState, useEffect } from "react";
-import Card from 'react-bootstrap/Card'
+import { Link } from "react-router-dom";
+
 
 function AssessmentPage() {
   const [Assessment, setAssessment] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     async function fetchAssessment() {
       try {
         const response = await api.get("assessmentuser/list");
 
         setAssessment([...response.data]);
+        setIsLoading(false);
       } catch (err) {
         console.error(err);
+        setIsLoading(false);
       }
     }
     fetchAssessment();
@@ -29,26 +34,28 @@ function AssessmentPage() {
         <h1 className="homeTitle">E-Sport</h1>
         <Carousel />
       </section>
-      <section className="establishmentsSection">
-        
-      <Card style={{ width: '18rem' }}>
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-    <Card.Text>
-    {Assessment.map((currenAssessment) => (
-          <AssessmentUser
-            key={currenAssessment.user}
-            {...currenAssessment}
-          /> 
-        ))}
-    </Card.Text>
-    <Card.Link href="#">Card Link</Card.Link>
-    <Card.Link href="#">Another Link</Card.Link>
-  </Card.Body>
-</Card>              
+
+      <Link to="/avaliacao-new" className="footerLink">
+            <p className="footerText">Adicionar Avaliação</p>
+          </Link>
+
+      <section className="estblishmentsSection">
+        {isLoading ? (
+          <div className="mt-5 text-center">
+            <div className="spinner-border text-success" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        ) : (
+          Assessment.map((currenAssessment) => (
+            <AssessmentUser
+              key={currenAssessment.user}
+              {...currenAssessment}
+            />
+          ))
+        )}
       </section>
-      <Footer />      
+      <Footer />
     </>
   );
 }
