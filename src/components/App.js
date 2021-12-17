@@ -6,8 +6,8 @@ import Login from "../pages/auth/Login";
 import ProtectedRoute from "../pages/auth/ProtectedRoute";
 import Home from "../pages/Home";
 import EstablishmentDetails from "./EstablishmentDetails";
-
 import Assessment from "../pages/AssessmentPage";
+import AssessmentInsert from "../pages/AssessmentInsert";
 
 // Produtos
 import ProductCreate from "../pages/product/ProductCreate";
@@ -50,6 +50,10 @@ function App() {
             <Route
               path="/avaliacao"
               element={<ProtectedRoute component={Assessment} />}
+            />
+              <Route
+              path="/avaliacao/new"
+              element={<ProtectedRoute component={AssessmentInsert} />}
             />
 
           </Routes>

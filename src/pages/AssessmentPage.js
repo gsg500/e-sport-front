@@ -5,6 +5,7 @@ import AssessmentUser from "../components/AssessmentUser";
 import Footer from "../components/Footer";
 import api from "../apis/api";
 import { useState, useEffect } from "react";
+import Card from 'react-bootstrap/Card'
 
 function AssessmentPage() {
   const [Assessment, setAssessment] = useState([]);
@@ -29,16 +30,25 @@ function AssessmentPage() {
         <Carousel />
       </section>
       <section className="establishmentsSection">
-        {Assessment.map((currenAssessment) => (
+        
+      <Card style={{ width: '18rem' }}>
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+    <Card.Text>
+    {Assessment.map((currenAssessment) => (
           <AssessmentUser
             key={currenAssessment.user}
             {...currenAssessment}
           /> 
         ))}
-        y
+    </Card.Text>
+    <Card.Link href="#">Card Link</Card.Link>
+    <Card.Link href="#">Another Link</Card.Link>
+  </Card.Body>
+</Card>              
       </section>
-      <Footer />
-      
+      <Footer />      
     </>
   );
 }
