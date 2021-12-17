@@ -39,6 +39,7 @@ function App() {
               path="/avaliacao"
               element={<ProtectedRoute component={Assessment} />}
             />
+
             <Route
               path="/avaliacao-new"
               element={<ProtectedRoute component={AssessmentInsert} />}

@@ -17,6 +17,8 @@ export default function EstablishmentItem(props) {
         <p className="establishmentItemText">{props.fieldTypes}</p>
       </div>
       </Link>
+      <Link to={`/establishmentDelete/${props._id}`} className="establishmentItemLink">Excluir Registro</Link>
     </div>
   );
 }
+
