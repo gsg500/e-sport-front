@@ -9,12 +9,12 @@ import EstablishmentDetails from "./EstablishmentDetails";
 import Assessment from "../pages/AssessmentPage";
 import AssessmentInsert from "../pages/AssessmentInsert";
 import Profile from "../pages/Profile";
+import UserEdit from "../components/UserEdit";
+import UserDelete from "../components/UserDelete";
+import EstablishmentDelete from "./EstablishmentDelete";
+import EstablishmentEdit from "./EstablishmentEdit";
 
-// Produtos
-import ProductCreate from "../pages/product/ProductCreate";
-import ProductList from "../pages/product/ProductList";
-import ProductDetail from "../pages/product/ProductDetail";
-import ProductDelete from "../pages/product/ProductDelete";
+
 
 import { AuthContextComponent } from "../contexts/authContext";
 
@@ -24,8 +24,11 @@ function App() {
       <div>
         <div>
           <Routes>
-          <Route path="/" element={<ProtectedRoute component={Home} />} />
-            <Route path="/search" element={<ProtectedRoute component={Search} />} />
+            <Route path="/" element={<ProtectedRoute component={Home} />} />
+            <Route
+              path="/search"
+              element={<ProtectedRoute component={Search} />}
+            />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route
@@ -33,35 +36,33 @@ function App() {
               element={<ProtectedRoute component={EstablishmentDetails} />}
             />
             <Route
-              path="/product/create"
-              element={<ProtectedRoute component={ProductCreate} />}
-            />
-            <Route
-              path="/product/list"
-              element={<ProtectedRoute component={ProductList} />}
-            />
-            <Route
-              path="/product/:id"
-              element={<ProtectedRoute component={ProductDetail} />}
-            />
-            <Route
-              path="/product/delete/:id"
-              element={<ProtectedRoute component={ProductDelete} />}
-            />
-            <Route
               path="/avaliacao"
               element={<ProtectedRoute component={Assessment} />}
             />
-              <Route
+            <Route
               path="/avaliacao-new"
               element={<ProtectedRoute component={AssessmentInsert} />}
             />
-                          <Route
+            <Route
               path="/profile"
               element={<ProtectedRoute component={Profile} />}
             />
-
-
+            <Route
+              path="/edit-user"
+              element={<ProtectedRoute component={UserEdit} />}
+            />
+            <Route
+              path="/delete-user"
+              element={<ProtectedRoute component={UserDelete} />}
+            />
+                        <Route
+              path="/edit-establishment"
+              element={<ProtectedRoute component={EstablishmentEdit} />}
+            />
+            <Route
+              path="/delete-establishment"
+              element={<ProtectedRoute component={EstablishmentDelete} />}
+            />
           </Routes>
         </div>
       </div>
