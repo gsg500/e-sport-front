@@ -1,3 +1,31 @@
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import api from "../../apis/api";
+
+function EstablishmentDelete() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function deleteEstablishment() {
+      try {
+        await api.delete(`/${id}`);
+        navigate("/search");
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    deleteEstablishment();
+  }, [id, navigate]);
+
+  return <div>Deletando...</div>;
+}
+
+export default EstablishmentDelete;
+
+
+/* --------
+
 import React, { useEffect } from "react";
 import {useParams} from 'react-router-dom';
 import api from "../apis/api";
@@ -22,3 +50,5 @@ function EstablishmentDelete(props) {
 }
 
 export default EstablishmentDelete;
+
+*/
