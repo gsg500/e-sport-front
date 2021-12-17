@@ -6,6 +6,7 @@ import Login from "../pages/auth/Login";
 import ProtectedRoute from "../pages/auth/ProtectedRoute";
 import Home from "../pages/Home";
 import EstablishmentDetails from "./EstablishmentDetails";
+import EstablishmentDelete from "../pages/EstablishmentDelete";
 import Assessment from "../pages/AssessmentPage";
 import AssessmentInsert from "../pages/AssessmentInsert";
 import Profile from "../pages/Profile";
@@ -32,6 +33,11 @@ function App() {
               path="/establishment/:id"
               element={<ProtectedRoute component={EstablishmentDetails} />}
             />
+            <Route
+              path="/establishmentDelete/:id"
+              element={<ProtectedRoute component={EstablishmentDelete} />}
+            />
+
             <Route
               path="/product/create"
               element={<ProtectedRoute component={ProductCreate} />}
