@@ -12,7 +12,7 @@ function EstablishmentDelete() {
         await api.delete(`/${id}`);
         navigate("/search");
       } catch (err) {
-        console.error(err);
+        console.log(err);
       }
     }
     deleteEstablishment();
